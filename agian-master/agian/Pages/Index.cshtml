@@ -1,0 +1,267 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<script src="~/js/site.js"></script>
+<div class="main">
+    <div class="register">
+        <h3>Registration Form</h3>
+        <form id="register" method="post">
+            <table>
+                <tr>
+                    <td>First Name:</td>
+                    <td style="width:50px"></td>
+                    <td>Last Name:</td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="name" name="FirstName" placeholder="Enter Your First Name" /></td>
+                    <td style="width:50px"></td>
+                    <td><input type="text" id="name" name="LastName" placeholder="Enter Your Last Name" /></td>
+                </tr>
+                <tr style="height:30px"></tr>
+                <tr>
+                    <td>Email:</td>
+                    <td style="width:50px"></td>
+                    <td>Mobile Number:</td>
+                </tr>
+                <tr>
+                    <td><input type="email" id="email" name="Email" placeholder="Enter Your Valid Email" /></td>
+                    <td style="width:50px"></td>
+                    <td><input type="number" id="number" name="PhoneNo" placeholder="Enter Your Contact Number" /></td>
+                </tr>
+                <tr style="height:30px"></tr>
+                <tr>
+                    <td>DOB:</td>
+                    <td style="width:50px"></td>
+                    <td>Gender:</td>
+                </tr>
+                <tr>
+                    <td><input type="date" id="dob" name="DOB" placeholder="Enter Your Date Of Birth" /></td>
+                    <td style="width:50px"></td>
+                    <td>
+                        <select name="Gender" id="Gender">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        
+                        </select>
+                    </td>
+                </tr>
+                <tr style="height:30px"></tr>
+                <tr>
+                    <td>City:</td>
+                    <td style="width:50px"></td>
+                    <td>Pincode:</td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="city" name="City" placeholder="Enter Your City" /></td>
+                    <td style="width:50px"></td>
+                    <td><input type="number" id="pincode" name="Pincode" placeholder="Enter Your Pincode" onkeyup="check()" /></td>
+                </tr>
+                <tr style="height:30px"></tr>
+                <tr>
+                    <td>Current Address:</td>
+                    <td style="width:50px"></td>
+                    <td>Permanent Address:</td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="address" name="Address" placeholder="Enter Your Current Address" /></td>
+                    
+                    <td style="width:50px"></td>
+                    <td><input type="text" id="addressp" name="AddressP" placeholder="Enter Your Permanent Address" /></td>
+                    
+                </tr>
+                <tr>
+                    
+                    <td><input type="checkbox" name="homepostalcheck" id="homepostalcheck" />Same As Current Address</td>
+                </tr>
+                <tr style="height:30px"></tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <lable>What You Are Looking For:</lable>
+                        <br />
+                        <input type="radio" name="form" id="training" onchange="openDivTraining()" />
+                        <span>Training</span>
+                        <div id="divTraining" style="display:none">
+                            <table>
+                                <tr style="height:10px"></tr>
+                                <tr>
+                                    <td>Institute Name</td>
+                                    <td style="width:50px"></td>
+                                    <td>Year</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="institue" name="Institute" placeholder="Enter Your Institute/College Name" /></td>
+                                    <td style="width:50px"></td>
+                                    @*<input type="number" id="year" name="Year" placeholder="Enter In Which Year You Are" />*@
+                                    <td>
+                                        <select id="year" name="Year" >
+                                            <option value="1th">1<sup>th</sup></option>
+                                            <option value="2nd">2<sup>nd</sup></option>
+                                            <option value="3rd">3<sup>rd</sup></option>
+                                            <option value="4th">4<sup>th</sup></option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr style="height:10px"></tr>
+                                <tr>
+                                    <td>Training Type</td>
+                                    <td style="width:50px"></td>
+                                    <td>Duration</td>
+                                </tr>
+                                <tr>
+                                    @*<input type="text" id="type" name="Field" placeholder="Enter Your Field Of Training" />*@
+                                    <td>
+                                        <select id="type" name="Field">
+                                            <option value="webDev">Web Dev</option>
+                                            <option value="C#">C#</option>
+                                            <option value="MVC">MVC model</option>
+                                            
+
+                                        </select>
+                                    </td>
+                                    <td style="width:50px"></td>
+                                    @*<input type="number" id="duration" name="Duration" placeholder="Enter Durtaion Of Your Training Period" />*@
+                                    <td>
+                                        <select id="duration" name="Duration" >
+                                            <option value="1M">1 Month</option>
+                                            <option value="3M">3 Months</option>
+                                            <option value="4M">4 Months</option>
+                                            <option value="6M">6 Months</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr style="height:10px"></tr>
+                                <tr>
+                                    <td>Skills</td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="text" id="skills" name="Skills" placeholder="Enter Your skills" /></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <br>
+                        <input type="radio" name="form" id="internship" onchange="openDivInternship()" />
+                        <span>Internship</span>
+                        <div id="divInternship" style="display:none">
+                            <table>
+                                <tr style="height:10px"></tr>
+                                <tr>
+                                    <td>Institute Name</td>
+                                    <td style="width:50px"></td>
+                                    <td>Year</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="institue" name="Institute" placeholder="Enter Your Institute/College Name" /></td>
+                                    <td style="width:50px"></td>
+                                    @*<input type="number" id="year" name="Year" placeholder="Enter In Which Year You Are" />*@
+                                    <td>
+                                        <select id="year" name="Year">
+                                            <option value="1th">1<sup>th</sup></option>
+                                            <option value="2nd">2<sup>nd</sup></option>
+                                            <option value="3rd">3<sup>rd</sup></option>
+                                            <option value="4th">4<sup>th</sup></option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr style="height:10px"></tr>
+                                <tr>
+                                    <td>Major</td>
+                                    <td style="width:50px"></td>
+                                    <td>Skills</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="major" name="Major" placeholder="Enter Your Major" /></td>
+                                    <td style="width:50px"></td>
+                                    <td><input type="text" id="skills" name="Skills" placeholder="Enter Your Skills" /></td>
+                                </tr>
+                                <tr style="height:10px"></tr>
+                                <tr>
+                                    <td>Qualification</td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="text" id="qualification" name="Qualification" placeholder="Enter Your Qualification" /></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <br />
+                        <input type="radio" name="form" id="job" onchange="openDivJob()" />
+                        <span>Job</span>
+                        <div id="divJob" style="display:none">
+                            <table>
+                                <tr style="height:10px"></tr>
+                                <tr>
+                                    <td>Qualification</td>
+                                    <td style="width:50px"></td>
+                                    <td style="width:50px"></td>
+                                    <td>Skills</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="qualification" name="Qualification" placeholder="Enter Your Higher Qualification" /></td>
+                                    <td style="width:50px"></td>
+                                    <td><input type="text" id="skills" name="Skills" placeholder="Enter Your Skills" /></td>
+                                </tr>
+                                <tr style="height:10px"></tr>
+                                <tr>
+                                    <td>Area Of Interest</td>
+                                    <td style="width:50px"></td>
+                                    <td>Experience</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="interest" name="Interest" placeholder="Enter Your Area Of Intrests" /></td>
+                                    <td style="width:50px"></td>
+                                    <td><input type="text" id="experience" name="Experience" placeholder="Enter Your Job Experience" /></td>
+                                </tr>
+                                <tr style="height:10px"></tr>
+                                <tr>
+                                    <td>Past Work Profile</td>
+                                    <td style="width:50px"></td>
+                                    <td>Past Work Experience</td>
+                                </tr>
+                                <tr>
+                                    @*<input type="text" id="profile" name="WorkProfile" placeholder="Enter Your Past Work Profile" />*@
+                                    <td>
+                                        <select id="profile" name="WorkProfile">
+                                            <option value="tech">Technical</option>
+                                            <option value="Non-Tech">Non-Technical</option>
+                                        </select>
+                                    </td>
+                                    <td style="width:50px"></td>
+                                    @*<input type="text" id="workExperience" name="WorkExperience" placeholder="Enter Your Work Experience" />*@
+                                    <td>
+                                        <select id="workExperience" name="WorkExperience">
+                                            <option value="begginer">0.6-1 yr</option>
+                                            <option value="Intermediate">1-3 yr</option>
+                                            <option value="pro">More than 5 yr</option>
+
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr style="height:10px"></tr>
+
+                                <tr>
+                                    <td>Current CTC (if any)</td>
+                                    <td style="width:50px"></td>
+                                <tr>
+                                    <td><input type="text" id="ctc" name="CTC" placeholder="Enter Your Current Salary Package" /></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height:30px"></tr>
+            
+                <tr>
+                    <td> <input type="submit" id="submit" value="submit" onclick="alertshow()" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+
